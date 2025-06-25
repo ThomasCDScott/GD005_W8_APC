@@ -40,6 +40,7 @@ public abstract class Unit : MonoBehaviour,
 
     private void Update()
     {
+        //The m_Target can either be a building or a position.
         if (m_Target != null)
         {
             float distance = Vector3.Distance(m_Target.transform.position, transform.position);

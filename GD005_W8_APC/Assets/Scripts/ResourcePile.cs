@@ -10,7 +10,19 @@ public class ResourcePile : Building
 {
     public ResourceItem Item;
 
-    public float ProductionSpeed = 0.5f;
+    private float m_ProductionSpeed = 0.5f;
+    public float ProductionSpeed
+    {
+        get { return m_CurrentProduction; }
+
+        set
+        {
+            if(value < 0)
+            {
+                Debug.LogError("Productivity can not be a negative number");
+            }
+        }
+    }
 
     private float m_CurrentProduction = 0.0f;
 
@@ -26,7 +38,7 @@ public class ResourcePile : Building
         
         if (m_CurrentProduction < 1.0f)
         {
-            m_CurrentProduction += ProductionSpeed * Time.deltaTime;
+            m_CurrentProduction += m_ProductionSpeed * Time.deltaTime;
         }
     }
 

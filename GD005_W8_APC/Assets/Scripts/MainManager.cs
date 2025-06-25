@@ -3,7 +3,7 @@ using System.IO;
 
 public class MainManager : MonoBehaviour
 {
-    public static MainManager Instance;
+    public static MainManager Instance { get; private set; } //auto implemented property
     public Color unitColor;
 
     public void Awake()
